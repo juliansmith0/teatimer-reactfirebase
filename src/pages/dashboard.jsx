@@ -51,13 +51,8 @@ import {
 import "../App.css";
 import { auth } from "../firebase.js";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Dashboard() {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
   const navigate = useNavigate();
 
   const [user, setUser] = useState({});

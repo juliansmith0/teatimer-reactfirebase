@@ -1,35 +1,30 @@
 import React, { useEffect, useState } from "react";
 import {
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut
 } from "firebase/auth";
 import "../App.css";
 import { auth } from "../firebase.js";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+export default function Register() {
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   const navigate = useNavigate();
 
   const [user, setUser] = useState({});
 
-  const login = async () => {
+  const register = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
-        loginEmail,
-        loginPassword
+        registerEmail,
+        registerPassword
       );
       console.log(user);
     } catch (error) {
       console.log(error.message);
     }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
   };
 
   useEffect(() => {
@@ -43,31 +38,29 @@ export default function Login() {
   return (
     <div>
       <div>
-        <h3> Login </h3>
+        <h3> Register User </h3>
         <input
-          value={loginEmail}
+          value={registerEmail}
           placeholder="Email..."
           onChange={(event) => {
-            setLoginEmail(event.target.value);
+            setRegisterEmail(event.target.value);
           }}
         />
         <input
-          value={loginPassword}
+          value={registerPassword}
           placeholder="Password..."
           onChange={(event) => {
-            setLoginPassword(event.target.value);
+            setRegisterPassword(event.target.value);
           }}
         />
 
-        <button onClick={login}> Login </button>
+        <button onClick={register}> Create User </button>
       </div>
 
       <h4> User Logged In: </h4>
       <p>{user?.email}</p>
 
-      <button onClick={logout}> Sign Out </button>
-
-      <p><Link to="/register">Register</Link></p>
+      <p><Link to="/">Login</Link></p>
     </div>
   );
 }
