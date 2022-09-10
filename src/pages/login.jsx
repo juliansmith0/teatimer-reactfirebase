@@ -7,13 +7,15 @@ import {
 } from "firebase/auth";
 import "../App.css";
 import { auth } from "../firebase.js";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Login() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({});
 
@@ -52,6 +54,8 @@ export default function Login() {
   const logout = async () => {
     await signOut(auth);
   };
+
+  if (user) navigate("/dashboard");
 
   return (
     <div>
