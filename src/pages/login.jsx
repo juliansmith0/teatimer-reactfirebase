@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import "../App.css";
 import { auth } from "../firebase.js";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [registerEmail, setRegisterEmail] = useState("");
