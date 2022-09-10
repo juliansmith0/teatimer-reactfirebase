@@ -19,12 +19,6 @@ export default function Login() {
 
   const [user, setUser] = useState({});
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  });
-
   const register = async () => {
     try {
       const user = await createUserWithEmailAndPassword(
@@ -54,6 +48,12 @@ export default function Login() {
   const logout = async () => {
     await signOut(auth);
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
 
   if (user) navigate("/dashboard");
 
