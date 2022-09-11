@@ -7,7 +7,7 @@ import {
 import "../App.css";
 import { auth } from "../firebase.js";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import logo from "../media/default/logos/01Logo_Green01.png";
+import logo from "../media/default/logos/01Logo_White.png";
 
 
 export default function Login() {
@@ -49,11 +49,11 @@ export default function Login() {
   return (
     <>
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <img src={ logo } alt="Tea Timer Logo" className="mx-auto h-20 w-auto mb-20"/>
         <div class="w-full bg-white rounded-3xl shadow md:mt-0 sm:max-w-md xl:p-0 bg-gray-50 border-gray-800">
           <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-md space-y-8">
               <div>
-              <img src={ logo } alt="Tea Timer Logo" className="mx-auto h-12 w-auto"/>
                 {/* <img
                   className="mx-auto h-12 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
