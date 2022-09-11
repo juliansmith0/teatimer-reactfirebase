@@ -40,7 +40,7 @@ export default function Login() {
     });
   }, []);
 
-  if (user) navigate("/dashboard");
+  if (user) navigate("/");
 
 //   Change page background
 //   document.body.classList.add('tea-green');

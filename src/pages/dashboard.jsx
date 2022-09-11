@@ -36,7 +36,7 @@ export default function Dashboard() {
     });
   }, []);
 
-  if (!user) navigate("/");
+  if (!user) navigate("/login");
 
   return (
     <div>

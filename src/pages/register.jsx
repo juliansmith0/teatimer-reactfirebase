@@ -34,7 +34,7 @@ export default function Register() {
     });
   }, []);
 
-  if (user) navigate("/dashboard");
+  if (user) navigate("/");
 
 
 //   Change page background
@@ -109,7 +109,7 @@ return (
               </button>
             </div>
             <p class="text-sm">
-              Already have an account? <Link to="/" class="text-amber-600 hover:text-amber-500">Sign in!</Link>
+              Already have an account? <Link to="/login" class="text-amber-600 hover:text-amber-500">Sign in!</Link>
             </p>
           </div>
         </div>
