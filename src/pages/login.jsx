@@ -49,8 +49,8 @@ export default function Login() {
   return (
     <>
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <img src={ logo } alt="Tea Timer Logo" className="mx-auto h-20 w-auto mb-20"/>
-        <div class="w-full bg-white rounded-3xl shadow md:mt-0 sm:max-w-md xl:p-0 bg-gray-50 border-gray-800">
+      <img src={ logo } alt="Tea Timer Logo" className="mx-auto h-20 w-auto mb-20 drop-shadow-lg"/>
+        <div class="w-full bg-white rounded-3xl drop-shadow-lg md:mt-0 sm:max-w-md xl:p-0 bg-gray-100 border-gray-800">
           <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-md space-y-8">
               <div>
@@ -59,7 +59,7 @@ export default function Login() {
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt="Your Company"
                 /> */}
-                <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+                <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-gray-900">
                   User Login
                 </h2>
               </div>
@@ -133,14 +133,14 @@ export default function Login() {
                 <button
                   type="submit"
                   onClick={login}
-                  className="group relative flex w-full justify-center rounded-xl border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="group relative flex w-full justify-center rounded-xl border border-transparent bg-amber-500 py-2 px-4 text-sm font-medium text-white hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3"></span>
                   Sign in
                 </button>
               </div>
-              <p>
-                <Link to="/register">Register</Link>
+              <p class="text-sm">
+                Don't have an account? <Link to="/register" class="text-amber-600 hover:text-amber-500">Register now!</Link>
               </p>
             </div>
           </div>
