@@ -7,17 +7,26 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const messageRef = useRef();
-  const ref = collection(firestore, "messages");
+  const teaRef = useRef();
+  const temperatureRef = useRef();
+  const minuteRef = useRef();
+  const secondRef = useRef();
+  const ref = collection(firestore, "teas");
   const user = auth.currentUser;
 
   const handleSave = async (e) => {
     e.preventDefault();
-    console.log(messageRef.current.value);
+    console.log(teaRef.current.value);
+    console.log(temperatureRef.current.value);
+    console.log(minuteRef.current.value);
+    console.log(secondRef.current.value);
 
     let data = {
-      message: messageRef.current.value,
-      associatedUser: user.uid
+      tea: teaRef.current.value,
+      associatedUser: user.uid,
+      temperature: temperatureRef.current.value,
+      steepingMinutes: minuteRef.current.value,
+      steepingSeconds: secondRef.current.value
     };
 
     try {
@@ -40,9 +49,14 @@ export default function Dashboard() {
 
       <button onClick={logout}> Sign Out </button>
       <form onSubmit={handleSave}>
-        <label>Enter Message</label>
-        <input type="text" ref={messageRef} />
-        <button type="submit">Save</button>
+        <label>Enter Tea</label>
+        <input type="text" ref={teaRef} />
+        <label>Steeping Temp (in degrees Fahrenheit)</label>
+        <input type="number" min="0" max="500" ref={temperatureRef} />
+        <label>Steeping Time (in minutes and seconds)</label>
+        <input type="number" min="00" max="59" ref={minuteRef} />
+        <input type="number" min="00" max="59" ref={secondRef} />
+        <button type="submit">Save</button><input type="reset" />
       </form>
       <br></br>
       <br></br>
